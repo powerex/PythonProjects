@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo recognizer</title>
+</head>
+<body>
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*" multiple id="real-file"/>
+    <input type="submit" value="Send" id="custom-button">CHOOSE A FILE</input>
+</form>
+</body>
+</html>
