@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" , type="text/css" , href="{{ url_for('static', filename='styles/style.css') }}">
 </head>
 <body>
-    Done!
+<div style="margin: auto; display: block">
+    <img width="300" src=" {{url_for('static', filename=image_name)}}" style="margin: auto; display: block">
+
+    <hr/>
+
+<div style="margin: auto; display: block; width: 300px">
+    <table>
+        <tr>
+            <th width="100%">
+                Characteristic
+            </th>
+            <th width="100%">
+                Percents
+            </th>
+        </tr>
+        {% for key in founded_list %}
+        <tr>
+            <td> {{ key }}</td>
+            <td> {{ founded_list[key] }} %</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
 </body>
 </html>
