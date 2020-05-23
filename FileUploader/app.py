@@ -9,10 +9,11 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    style = 'none'
+    return render_template("index.html", show=style )
 
 
-@app.route("/upload", methods=['POST'])
+@app.route("/", methods=['POST'])
 def upload():
     target = os.path.join(APP_ROOT, 'images/')
 
@@ -29,7 +30,8 @@ def upload():
         upload.save(destination)
         print('=====================================================================================================')
         list_names = reco.get_labels(filename)
-    return render_template("complete.html", image_name=filename, founded_list=list_names)
+        style = 'block'
+    return render_template("index.html", image_name=filename, founded_list=list_names, show=style)
 
 
 if __name__ == "__main__":

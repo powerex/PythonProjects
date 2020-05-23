@@ -27,6 +27,8 @@ text-decoration: none;
   background: white;
   box-shadow: 0 8px 15px rgba(0,0,0,.1);
   transition: .3s;
+  position: relative;
+  left: 25%;
 }
 
 .custom-button:hover {
@@ -40,7 +42,7 @@ text-decoration: none;
 #custom-text {
     margin-left: 10px;
     font-family: sans-serif;
-    color: #aaa;
+    color: #000000;
 }
 
 

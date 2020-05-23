@@ -11,11 +11,38 @@
 
 </div>
 
-<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" style="width: 500px; display: block; margin: auto">
-    <input hidden="hidden" type="file" id="real-file" name="file" accept="image/*" multiple id="real-file"/>
-    <button class="custom-button" type="button" id="customButton">CHOOSE A FILE</button>
-    <input id="sendButton" class="custom-button" type="submit" value="Analyze" id="custom-button"/>
-    <hr>
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data"
+      style="width: 500px; display: block; margin: auto">
+    <div style="width: 500px; margin: auto">
+        <input hidden="hidden" type="file" id="real-file" name="file" accept="image/*" multiple id="real-file"/>
+        <button class="custom-button" type="button" id="customButton">CHOOSE A FILE</button>
+        <input id="sendButton" type="submit" value="Analyze" style="display: none"/>
+    </div>
 </form>
+<hr width="500px">
+<div id="div-chosen-file" style="display: {{show}}">
+    <img width="300" src=" {{url_for('static', filename=image_name)}}" style="margin: auto; display: block">
+    <hr width="500px">
+    <div style="margin: auto; display: block; width: 300px">
+        <table>
+            <tr>
+                <th width="100%">
+                    Characteristic
+                </th>
+                <th width="100%">
+                    Percents
+                </th>
+            </tr>
+            {% for key in founded_list %}
+            <tr>
+                <td> {{ key }}</td>
+                <td> {{ founded_list[key] }} %</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+
 </body>
 </html>
